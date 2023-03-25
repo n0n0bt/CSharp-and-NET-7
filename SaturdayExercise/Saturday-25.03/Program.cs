@@ -156,32 +156,42 @@ int wordCount = words.Length;
 
 WriteLine($"The number of words from your string is: {wordCount}");
 
+////////////////////////////////////////////////////////////////////////////////
+
+// 13. Use the string.Concat() method to concatenate two strings
+
+string concatStrings;
+
+WriteLine("Enter first Name:");
+string firstString = ReadLine();
+
+WriteLine("Enter second Name:");
+string secondString = ReadLine();
 
 
+concatStrings = String.Concat(firstString," ", secondString);
 
+WriteLine($"This is your concatenatet strings: {concatStrings}");
 
+////////////////////////////////////////////////////////////////////////////////
 
+// 14. set the >= comparison operator to find out if the age(25) is greater than OR equal to the voting age limit, which is set to 18
 
+int age1;
+int votingLimit = 18;
 
+Write("Enter your age:");
 
+age1 = Convert.ToInt16(ReadLine());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if (age1 >= votingLimit)
+{
+    WriteLine("You can enter");
+}
+else
+{
+    WriteLine("You cannot access");
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
