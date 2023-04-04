@@ -135,7 +135,14 @@ do
  * Write a program that inputs n integers and checks whether among them there 
 is a number equal to the sum of all the rest.
 If there is such an element, print "Yes" + its value, otherwise – "No" + 
-the difference between the largest element and the sum of the rest (by absolute value) */
+the difference between the largest element and the sum of the rest (by absolute value) 
+int i = 0;
+int n = 5;
+int sum = 0;
+int num1;
+int n2 = 0
+*/
+
 
 
 
@@ -204,3 +211,4 @@ DateTime dt = new DateTime(2023, 04, 01, 19, 56, 20);
 string? time = String.Format("{0:t}", dt);
 
 WriteLine($"The time is: {time}");
+
