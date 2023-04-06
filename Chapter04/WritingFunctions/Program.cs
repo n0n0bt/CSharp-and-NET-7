@@ -15,3 +15,5 @@ int someFactorial = Factorial(5);
 WriteLine(someFactorial);
 
 RunFactorial();
+
+RunFibImperative();

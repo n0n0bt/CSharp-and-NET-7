@@ -86,6 +86,13 @@ partial class Program
         WriteLine();
     }
 
+
+    /// <summary>
+    /// Factorials the specified number.
+    /// </summary>
+    /// <param name="numb">A real number bigger then 0.</param>
+    /// <returns>The factorial of a given number.</returns>
+    /// <exception cref="ArgumentException">Throws exception when the number is smaller then 0.</exception>
     static int Factorial(int numb)
     {
         if (numb < 0)
@@ -107,7 +114,11 @@ partial class Program
             }
         }
     }
+    
 
+    /// <summary>
+    /// Runs the factrorial of numbers from -2 to 15.
+    /// </summary>
     static void RunFactorial()
     {
         for (int i = -2; i <= 15; i++)
@@ -126,4 +137,51 @@ partial class Program
             }
         }
     }
+
+    static int FibImperative(int term)
+    {
+        if (term == 1)
+        {
+            return 0;
+        }
+        else if (term == 2)
+        {
+            return 1;
+        }
+        else
+        {
+            return FibImperative(term - 1) + FibImperative(term - 2);
+        }
+    }
+
+
+    static void RunFibImperative()
+    {
+        for (int j = 1; j <= 30; j++)
+        {
+            WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
+              arg0: CardinalToOrdinal(j),
+              arg1: FibImperative(term: j));
+        }
+    }
+
+    static int FibFunctional(int term) =>
+      term switch
+      {
+          1 => 0,
+          2 => 1,
+          _ => FibFunctional(term - 1) + FibFunctional(term - 2)
+      };
+
+    static void RunFibFunctional()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
+              arg0: CardinalToOrdinal(i),
+              arg1: FibFunctional(term: i));
+        }
+    }
+
 }
+
