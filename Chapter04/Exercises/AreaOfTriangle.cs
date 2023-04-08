@@ -87,14 +87,13 @@ namespace Exercises
 
     public static class ReturnFirstElArr
     {
-        public static object TheReturner(object[] arg)
+        public static int TheReturner(int[] arg)
         {
-
             return arg[0];
         }
     }
-    
-    
+
+
     public static class DivisibleByFive
     {
         public static bool IsDivisibleByFive(int number)
