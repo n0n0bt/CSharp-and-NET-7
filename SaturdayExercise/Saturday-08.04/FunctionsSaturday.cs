@@ -134,6 +134,19 @@ namespace Saturday_08._04
         }
     }
 
+    public class Tower
+    {
+        public static int Recursive(int n1)
+        {
+           
+            if (n1 == 0)
+            {
+                return 1;
+            }
+            return n1 * Recursive(n1 - 1);
+
+        }
+    }
 
 
 }
