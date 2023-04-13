@@ -1,6 +1,5 @@
 ﻿using Packt.Shared;
-using System.Text;
-Console.OutputEncoding = Encoding.UTF8;
+
 
 Person bob = new();
 WriteLine (bob.ToString());
@@ -38,4 +37,47 @@ BankAccount jonesAccount = new();
 jonesAccount.AccountName = "Mrs. Jones";
 jonesAccount.Balance = 2400;
 
-WriteLine($"{jonesAccount.AccountName} earned {jonesAccount.Balance * BankAccount.InterestRate:C}");
+WriteLine($"{jonesAccount.AccountName} earned {jonesAccount.Balance * BankAccount.InterestRate:C} interest.");
+
+
+BankAccount gerrierAccount = new();
+
+gerrierAccount.AccountName = "Ms. Gerrier";
+gerrierAccount.Balance = 98;
+
+WriteLine(format: "{0} earned {1:C} interest.",
+    arg0: gerrierAccount.AccountName, arg1: gerrierAccount.Balance * BankAccount.InterestRate);
+
+WriteLine($"{bob.Name} is a {Person.Species}");
+
+WriteLine($"{bob.Name} was born on {bob.HomePlanet}");
+
+Person blankPerson = new();
+
+WriteLine($"{blankPerson.Name} of {blankPerson.HomePlanet} was created at {blankPerson.Instantiated:hh:mm:ss}" +
+    $" on a {blankPerson.Instantiated:dddd}.");
+
+WriteLine($"{bob.Name} of {bob.HomePlanet} was created at {bob.Instantiated:hh:mm:ss} on a {bob.Instantiated:dddd}.");
+
+Person gunny = new(initialName: "Gunny", homePlanet: "Mars");
+
+WriteLine($"{gunny.Name} of {gunny.HomePlanet} was created at {gunny.Instantiated:hh:mm:ss} on a {gunny.Instantiated:dddd}");
+
+bob.WriteToConsole();
+
+WriteLine(bob.GetOrigin());
+
+(string, int) fruit = bob.getFruit();
+
+WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
+
+(string, int) fruit1 = bob.getFruit();
+WriteLine($"{fruit1.Item1}, {fruit1.Item2} there are.");
+
+var fruitNamed = bob.GetNamedFruit();
+WriteLine($"There are {fruitNamed.Number} {fruitNamed.Name}.");
+
+WriteLine(bob.SayHello());
+WriteLine(bob.SayHello("Emily"));
+
+WriteLine(bob.OptionalParameters());
