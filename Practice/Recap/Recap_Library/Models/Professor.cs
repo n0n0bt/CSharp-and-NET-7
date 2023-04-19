@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Recap_Library.Models
 {
-    public class Professor
+    public class Professor : Person
     {
+        public void Explain()
+        {
+            Console.WriteLine("I'm explaining");
+        }
     }
 }

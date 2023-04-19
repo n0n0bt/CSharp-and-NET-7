@@ -18,6 +18,6 @@ namespace Recap_Library.Models
 
         public string Introduce () { return $"Hi my name is {this.name}. I am a student, and {this.GetAge()} old."; }
 
-
+        public void ShowAge() { Console.WriteLine($"My age is : {this.GetAge()} years old"); }
     }
 }

@@ -12,13 +12,14 @@ namespace Recap_Library.Models
         public string name;
         private int age;
 
-        // Constructor ()
+        // Constructor () gives it like Default value
         public Person()
         {
             name = "";
             age = 0;
         }
 
+        // Constructor, but with parametar and exeption
         public Person(string name, int age)
         {
             this.name = name ?? throw new ArgumentNullException(nameof(name));
@@ -26,7 +27,7 @@ namespace Recap_Library.Models
         }
 
         
-
+        // Public methods
         public void Greet() { Console.WriteLine("Hello");}
 
         public void SetAge(int age) { this.age = age; }
