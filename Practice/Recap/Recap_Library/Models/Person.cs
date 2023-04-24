@@ -12,7 +12,7 @@ namespace Recap_Library.Models
         public string name;
         private int age;
 
-        // Constructor () gives it like Default value
+        // Constructor () gives it like default/start value
         public Person()
         {
             name = "";

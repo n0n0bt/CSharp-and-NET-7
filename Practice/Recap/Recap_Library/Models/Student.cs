@@ -8,16 +8,14 @@ namespace Recap_Library.Models
 {
     public class Student : Person
     {
+        // Constructor that is inherited from the Person class
+        public Student(string name, int age) : base(name, age){ }
 
-        public Student(string name, int age) : base(name, age)
-        {
-            
-        }
 
         public void Study() { Console.WriteLine("I'm studying!"); }
 
-        public string Introduce () { return $"Hi my name is {this.name}. I am a student, and {this.GetAge()} old."; }
+        public string Introduce () { return $"Hi my name is {name}. I am a student, and {GetAge()} old."; }
 
-        public void ShowAge() { Console.WriteLine($"My age is : {this.GetAge()} years old"); }
+        public void ShowAge() { Console.WriteLine($"My age is : {GetAge()} years old"); }
     }
 }

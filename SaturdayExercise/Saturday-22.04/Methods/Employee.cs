@@ -14,7 +14,7 @@ namespace Saturday_22._04.Methods
         private readonly int ID;
 
 
-        public static Employee()
+        static Employee()
         {
             nextAvailableID = new Random().Next(1, 999);
         }
@@ -30,7 +30,6 @@ namespace Saturday_22._04.Methods
         }
 
         
-
         public override string ToString()
         {
             return firstName + " " + lastName + " " + ID;
