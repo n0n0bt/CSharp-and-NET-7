@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recap_Library.Models
 {
-    public class StudentProfesorTest 
+    public class StudentProfesorTest
     {
         public void Main()
         {

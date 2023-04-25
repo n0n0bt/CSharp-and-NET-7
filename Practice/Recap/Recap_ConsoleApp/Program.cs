@@ -5,7 +5,7 @@ Person myPerson = new Person("Naumche", 27);
 
 myPerson.Greet();
 
-Student student = new Student();
+Student student = new Student("Naumche", 27);
 
 student.SetAge(21);
 

@@ -10,7 +10,7 @@ namespace Recap_Library.Models
     {
         // Fields 
         public string name;
-        private int age;
+        private int Age;
 
         // Constructor () gives it like default/start value
         public Person()
@@ -23,16 +23,16 @@ namespace Recap_Library.Models
         public Person(string name, int age)
         {
             this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.age = age;
+            this.Age = age;
         }
 
         
         // Public methods
         public void Greet() { Console.WriteLine("Hello");}
 
-        public void SetAge(int age) { this.age = age; }
+        public void SetAge(int age) { this.Age = age; }
 
-        protected int GetAge() { return this.age; }
+        protected int GetAge() { return this.Age; }
 
     }
 }

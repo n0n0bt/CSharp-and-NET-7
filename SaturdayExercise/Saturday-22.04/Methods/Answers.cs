@@ -10,7 +10,7 @@ namespace Saturday_22._04.Methods
     {
         public List<String> MyList;
 
-        //Initialize MyList in constructor
+        // Initialize MyList in constructor
         public Answers()
         {
             MyList = new List<String>();
