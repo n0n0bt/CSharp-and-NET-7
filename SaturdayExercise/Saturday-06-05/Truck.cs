@@ -34,6 +34,7 @@ namespace Saturday_06_05
         {
             return base.FuelQuantity += fuelAmount * 0.95;
         }
+
         public override string ToString()
         {
             return base.ToString();

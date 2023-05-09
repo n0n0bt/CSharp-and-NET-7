@@ -16,7 +16,6 @@ namespace Saturday_06_05
 
         // constructor
 
-
         public override void Drive(double distance)
         {
             double fuelNeeded = distance * (base.FuelConsumption + ACConsumption);
