@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithFileSystem", "WorkingWithFileSystem\WorkingWithFileSystem.csproj", "{0B096695-1E4F-4235-91E4-77EF4A9C59F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithFileSystem", "WorkingWithFileSystem\WorkingWithFileSystem.csproj", "{0B096695-1E4F-4235-91E4-77EF4A9C59F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithStreams", "WorkingWithStreams\WorkingWithStreams.csproj", "{7F8D14F5-93AF-4756-A584-5BEBE419261E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithStreams", "WorkingWithStreams\WorkingWithStreams.csproj", "{7F8D14F5-93AF-4756-A584-5BEBE419261E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practice", "Practice\Practice.csproj", "{EF3A2C90-7115-4E1F-A11C-8804570DF73D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithEncodings", "WorkingWithEncodings\WorkingWithEncodings.csproj", "{37795B81-1142-4B1B-82AF-6C1387DE5590}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithSerialization", "WorkingWithSerialization\WorkingWithSerialization.csproj", "{B5C1B80B-03D5-4E1B-AF02-CEC38619235A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{4AF0956F-A952-4865-A2DB-ACDD1EB1A24E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{7F8D14F5-93AF-4756-A584-5BEBE419261E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F8D14F5-93AF-4756-A584-5BEBE419261E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F8D14F5-93AF-4756-A584-5BEBE419261E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3A2C90-7115-4E1F-A11C-8804570DF73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3A2C90-7115-4E1F-A11C-8804570DF73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3A2C90-7115-4E1F-A11C-8804570DF73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3A2C90-7115-4E1F-A11C-8804570DF73D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37795B81-1142-4B1B-82AF-6C1387DE5590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37795B81-1142-4B1B-82AF-6C1387DE5590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37795B81-1142-4B1B-82AF-6C1387DE5590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37795B81-1142-4B1B-82AF-6C1387DE5590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C1B80B-03D5-4E1B-AF02-CEC38619235A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C1B80B-03D5-4E1B-AF02-CEC38619235A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C1B80B-03D5-4E1B-AF02-CEC38619235A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C1B80B-03D5-4E1B-AF02-CEC38619235A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF0956F-A952-4865-A2DB-ACDD1EB1A24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF0956F-A952-4865-A2DB-ACDD1EB1A24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF0956F-A952-4865-A2DB-ACDD1EB1A24E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF0956F-A952-4865-A2DB-ACDD1EB1A24E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
