@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee>
+    <Id>1</Id>
+    <Name>Naumche</Name>
+    <Adress>ScharnhorstStrasse</Adress>
+    <Subordinared>
+      <Employee>
+        <Id>3</Id>
+        <Name>John</Name>
+        <Adress>Portastr</Adress>
+      </Employee>
+    </Subordinared>
+  </Employee>
+  <Employee>
+    <Id>2</Id>
+    <Name>Todor</Name>
+    <Adress>Mullerstrasse</Adress>
+    <Subordinared>
+      <Employee>
+        <Id>4</Id>
+        <Name>Willy</Name>
+        <Adress>Kozara</Adress>
+      </Employee>
+    </Subordinared>
+  </Employee>
+</ArrayOfEmployee>
