@@ -14,7 +14,7 @@ namespace Packt.Shared
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string path = Path.Combine(Environment.CurrentDirectory, "Northwind.db");
+            string path = Path.Combine(Environment.CurrentDirectory,"SQL-Scripts","Northwind.db");
 
             string connection = $"Filename={path}";
 
