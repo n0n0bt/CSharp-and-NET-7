@@ -14,6 +14,7 @@ namespace EntityFrameworkRelations
 
         [ForeignKey("Department")]
         public int DeptID { get; set; }
+
         //Navigation property
         public Department Department { get; set; }
     }
