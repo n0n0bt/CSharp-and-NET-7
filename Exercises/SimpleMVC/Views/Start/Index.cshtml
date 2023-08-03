@@ -1,0 +1,18 @@
+﻿@using SimpleMVC.Models;
+@model Card
+@{
+    ViewBag.Title = "Simple MVC - Index";
+
+
+}
+
+<h1 class="text-center bg-black text-light">My First simple MVC Project!</h1>
+
+<div class="card" style="width: 18rem;">
+    <img src="~/images/@Model.Image" class="card-img-top" alt="@Model.AlternativeText">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Text</p>
+        <a asp-controller="Card" asp-action="Details" asp-route-id"="@Model.CardID" class="btn btn-primary">Go to details</a>
+    </div>
+</div>
