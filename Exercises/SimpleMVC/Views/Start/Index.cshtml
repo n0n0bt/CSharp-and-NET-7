@@ -1,18 +1,28 @@
-﻿@using SimpleMVC.Models;
-@model Card
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using SimpleMVC.Models;
+
+@model List<Card>
 @{
     ViewBag.Title = "Simple MVC - Index";
 
 
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/index.css" />
+</head>
 
-<h1 class="text-center bg-black text-light">My First simple MVC Project!</h1>
 
-<div class="card" style="width: 18rem;">
-    <img src="~/images/@Model.Image" class="card-img-top" alt="@Model.AlternativeText">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Title</h5>
-        <p class="card-text">@Model.Text</p>
-        <a asp-controller="Card" asp-action="Details" asp-route-id"="@Model.CardID" class="btn btn-primary">Go to details</a>
-    </div>
+<h1 class="text-center m-3 bg-black text-light">My First simple MVC Project!</h1>
+<div class="row d-flex flex-wrap justify-content-between gap-3">
+    @foreach (Card item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/@item.Image" class="card-img-top" alt="@item.AlternativeText">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">@item.Text</p>
+                <a asp-controller=@item.Controller asp-action=@item.Action asp-route-id="@item.CardID" class="btn btn-primary">Go to details</a>
+            </div>
+        </div>
+    }
 </div>

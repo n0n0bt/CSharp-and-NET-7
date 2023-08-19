@@ -3,7 +3,8 @@ using SimpleMVC.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<SimpleMvcDBContext>(option=>option.UseSqlServer(connectionString));
 builder.Services.AddControllersWithViews();
@@ -16,7 +17,7 @@ app.UseRouting();
 
 app.MapControllerRoute(
     name:"default",
-    pattern: "{controller=Start}/{action=Index}");
+    pattern: "{controller=Start}/{action=Index}/{id?}");
 
 //app.MapRazorPages();
 

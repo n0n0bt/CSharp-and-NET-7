@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SimpleMVC.Data.Entities;
 using SimpleMVC.Models;
 
 namespace SimpleMVC.Data
@@ -7,22 +8,24 @@ namespace SimpleMVC.Data
     {
        
 
-
         public SimpleMvcDBContext(DbContextOptions options) : base(options)
         {
         }
 
-        public virtual DbSet<Card> Cards { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductReview> ProductReviews { get; set; }
+        public DbSet<User> Users { get; set; }
+
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // this is fluent API
-            modelBuilder.Entity<Card>(entity => 
-            {
-                entity.Property(e => e.CardID).ValueGeneratedOnAdd();
-                entity.HasKey(e => e.CardID);
-            });
+
+            modelBuilder.Entity<ProductReview>().HasKey(nameof(ProductReview.ProductID), nameof(ProductReview.UserID));
         }
     }
 }
