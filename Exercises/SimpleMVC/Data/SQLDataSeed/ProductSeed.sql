@@ -1,14 +1,13 @@
-﻿
 USE SimpleMvcDb
 GO
-​
+
 INSERT INTO tbl_products (ImageName, Summary, ProductName, Price, Color, CategoryID) VALUES
 ('tshirt1.jpg', 'Comfortable and versatile', 'Classic White T-shirt', 19.99, 6,1),
 ('jeans1.jpg', 'Durable denim for everyday wear', 'Slim Fit Blue Jeans', 49.99, 2,2),
 ('trousers1.jpg', 'Stylish and comfortable', 'Formal Black Trousers', 39.99, 7,3),
 ('sweater1.jpg', 'Warm and cozy for chilly days', 'Knit Wool Sweater', 59.99, 14,4),
 ('shorts1.jpg', 'Casual and breathable', 'Cargo Shorts', 29.99, 15,5),
-('tshirt2.jpg', 'Sporty and trendy', 'Graphic Print T-shirt', 24.99, 7,1),
+('tshirt2.jpg', 'Sporty and trendy', 'Graphic Print T-shirt', 24.99,7,1),
 ('jeans2.jpg', 'Relaxed fit for maximum comfort', 'Relaxed Fit Distressed Jeans', 54.99, 18,2),
 ('trousers2.jpg', 'Modern slim cut', 'Slim Fit Charcoal Trousers', 44.99, 35,3),
 ('sweater2.jpg', 'Elegant and versatile', 'Crew Neck Cashmere Sweater', 79.99, 36,4),

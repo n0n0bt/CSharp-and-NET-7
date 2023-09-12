@@ -8,11 +8,13 @@ namespace SimpleMVC.Controllers
 {
     public class ProductController : Controller
     {
-        private SimpleMvcDBContext _db;
-        public ProductController(SimpleMvcDBContext dbInject)
+        private SimpleMvcDbContext _db;
+
+        public ProductController(SimpleMvcDbContext dbInject)
         {
             _db = dbInject;
         }
+
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
@@ -21,10 +23,8 @@ namespace SimpleMVC.Controllers
             if (product != null)
             {
                 return View(product);
-            }
-            else
-            {
-                return View("ProductNotFound");
+            } else { 
+                return View("NotFound"); 
             }
         }
 

@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using SimpleMVC.Enums;
 
 namespace SimpleMVC.Data.Entities
@@ -29,12 +28,8 @@ namespace SimpleMVC.Data.Entities
         public Color Color { get; set; }
 
         [ForeignKey("FK_Category_Product")]
-        public int CategoryID { get; set; }
-
+        public int CategoryID { get; set; } 
         public virtual Category? Category { get; set; }
-
-
-
 
     }
 }

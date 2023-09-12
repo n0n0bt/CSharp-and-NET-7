@@ -11,7 +11,7 @@ namespace Ogani.Data.Entities
         public Guid ProductID { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage ="Product name to long! Must be under 50 characters.")]
         public string ProductName { get; set; }
 
         [Required]
@@ -25,6 +25,7 @@ namespace Ogani.Data.Entities
         public string? ProductDescription { get; set; }
 
         public string? ProductInformation { get; set; }
+
         public double Weight { get; set; }
 
         [StringLength(20)]

@@ -7,26 +7,26 @@ namespace SimpleMVC.Controllers
 {
     public class StartController : Controller
     {
-        private SimpleMvcDBContext _db;
-        public StartController(SimpleMvcDBContext dbInject)
+        private SimpleMvcDbContext _db;
+
+        public StartController(SimpleMvcDbContext dbInject)
         {
             _db = dbInject;
         }
-
         public IActionResult Index()
         {
-            List<Product>? products = null;
+            List<Product>? products;
             try
             {
                 products = _db.Products.ToList();
             }
             catch (Exception ex)
             {
-
                 return View("ErrorPage", ex);
             }
 
             List<Card> cards = new List<Card>();
+
             foreach (Product product in products)
             {
                 cards.Add(MapCardWithProduct(product));
@@ -35,13 +35,11 @@ namespace SimpleMVC.Controllers
             return View(cards);
         }
 
-
-
-
         #region Helpers
         private Card MapCardWithProduct(Product product)
         {
             Card myCard = new Card();
+
             if (product != null)
             {
                 myCard.CardID = product.ProductID;
@@ -51,21 +49,17 @@ namespace SimpleMVC.Controllers
                 myCard.Image = "products/" + product.ImageName;
                 myCard.Controller = "Product";
                 myCard.Action = "Details";
-            }
-            else
+            } else
             {
                 myCard.CardID = 0;
                 myCard.AlternativeText = "Image not found";
-                myCard.Text = "....";
-                myCard.Title = "Not Found";
+                myCard.Text = "...";
+                myCard.Title = "Not found";
                 myCard.Image = "";
             }
-            
+
             return myCard;
         }
-
-
-
         #endregion
     }
 }

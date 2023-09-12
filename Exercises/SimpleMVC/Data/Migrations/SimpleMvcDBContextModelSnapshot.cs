@@ -10,8 +10,8 @@ using SimpleMVC.Data;
 
 namespace SimpleMVC.Data.Migrations
 {
-    [DbContext(typeof(SimpleMvcDBContext))]
-    partial class SimpleMvcDBContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(SimpleMvcDbContext))]
+    partial class SimpleMvcDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

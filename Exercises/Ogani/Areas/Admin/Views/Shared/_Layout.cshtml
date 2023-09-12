@@ -51,12 +51,19 @@
 
             <!-- Nav Item - Products -->
             <li class="nav-item">
-                <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="Products">
+                <a class="nav-link" asp-area="Admin" asp-controller="Console" asp-action="Products">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Products</span>
                 </a>
             </li>
 
+            <!-- Nav Item - Products -->
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="Console" asp-action="Categories">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -78,10 +85,10 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
+            
             <div id="content">
-                <div id="content"
                     <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -283,9 +290,12 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                    @RenderBody()
+
+                <div class="container">
+                        @RenderBody()
                 </div>
             </div>
+
             <!-- End of Main Content -->
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

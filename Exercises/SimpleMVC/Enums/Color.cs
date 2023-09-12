@@ -23,7 +23,7 @@ namespace SimpleMVC.Enums
         Khaki,
         LawnGreen,
         LightGreen,
-        LightSkyBlue,
+        LightBlue,
         Linen,
         MediumOrchid,
         MediumPurple,
@@ -44,6 +44,6 @@ namespace SimpleMVC.Enums
         Navy,
         Indigo,
         Beige,
-        Brown,
+        Brown
     };
 }
