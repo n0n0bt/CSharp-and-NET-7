@@ -68,5 +68,89 @@ namespace Ogani.Areas.Admin.Controllers
                
             }
         }
+
+        //GET: Admin/Category/Delete 
+        public IActionResult Delete(Guid id)
+        {
+         
+            Category? category = _context.Categories.FirstOrDefault(c => c.CategoryID == id);
+            if (id == null)
+            {
+                return RedirectToAction("Categories", "Console");
+            }
+            else
+            {
+                return View(category);
+            }
+        }
+
+        //Post: Admin/Category/Delete/0000-0000-00000-0000
+        [HttpPost, ActionName("Delete")]
+        public IActionResult ConfirmDelete(Guid? id)
+        {
+            Category? category = _context.Categories.FirstOrDefault(c => c.CategoryID == id);
+            if (id == null)
+            {
+                return RedirectToAction("Categories", "Console");
+            }
+            else
+            {
+                try
+                {
+                    _context.Categories.Remove(category);
+                    _context.SaveChanges();
+                    return RedirectToAction("Categories", "Console");
+                }
+                catch (Exception ex)
+                {
+
+                    throw new HttpRequestException("Category not found", ex.InnerException);
+                }
+            }
+        }
+
+        //GET: Admin/Category/Update
+
+        public IActionResult Update(Guid? id)
+        {
+            Category? category = _context.Categories.FirstOrDefault(c => c.CategoryID == id);
+
+            if (id == null)
+            {
+                return RedirectToAction("Categories", "Console");
+            }
+            else
+            {
+                return View(category);
+            }
+        }
+
+        //Post: Admin/Category/Update
+        [HttpPost]
+        public IActionResult Update([Bind("CategoryID, CategoryName, CategoryDescription")] Category updatedCategory)
+        {
+            Category? category = _context.Categories.FirstOrDefault(c => c.CategoryID == updatedCategory.CategoryID);
+            if (category == null)
+            {
+                return RedirectToAction("Categories", "Console");
+            }
+            else
+            {
+                try
+                {
+                    category.CategoryName = updatedCategory.CategoryName;
+                    category.CategoryDescription = updatedCategory.CategoryDescription;
+                    _context.Categories.Update(category);
+                    _context.SaveChanges();
+                    return RedirectToAction("Categories", "Console");
+                }
+                catch (Exception ex)
+                {
+
+                    throw new HttpRequestException("Category not found", ex.InnerException);
+                }
+            }
+        }
+
     }
 }

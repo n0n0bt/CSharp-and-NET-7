@@ -52,9 +52,21 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductImageName)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfCreation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfCreation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfUpdate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfUpdate)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductID">Edit</a> |
-    <a asp-controller="Console" asp-action="Products">Back to List</a>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.ProductID">Edit</a> |
+    <a asp-controller="Console" class="btn btn-md btn-outline-info" asp-action="Products">Back to List</a>
 </div>

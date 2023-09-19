@@ -60,6 +60,7 @@ namespace Ogani.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.DateOfCreation = DateTime.Now;
                 product.ProductID = Guid.NewGuid();
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -100,6 +101,7 @@ namespace Ogani.Areas.Admin.Controllers
             {
                 try
                 {
+                    product.DateOfUpdate = DateTime.Now;
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
