@@ -37,6 +37,8 @@ namespace Ogani.Data.Entities
         [DataType(DataType.Date)]
         public DateTime DateOfUpdate { get; set; }
 
+        public Guid ProductCategoryCategoryID { get; set; }
+
         public virtual Category? ProductCategory { get; set; }
     }
 }

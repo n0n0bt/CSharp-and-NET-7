@@ -12,6 +12,7 @@ namespace Ogani.Data.Entities
             CategoryName = string.Empty;
             CategoryDescription = string.Empty;
         }
+
         public Category(string? categoryName, string? categoryDescription)
         {
             CategoryID = new Guid();
