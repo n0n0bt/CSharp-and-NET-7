@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ namespace Ogani.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         //// GET: Admin/Products
@@ -57,18 +60,100 @@ namespace Ogani.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,ProductName,ProductPrice,ProductShortDescription,ProductDescription,ProductInformation,Weight,ProductImageName")] Product product)
+        public async Task<IActionResult> Create([FromForm] IFormFile image, Product product)
         {
-            if (ModelState.IsValid)
+            if (image != null && image.Length > 0)
             {
-                product.DateOfCreation = DateTime.Now;
-                product.ProductID = Guid.NewGuid();
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Products", "Console");
+                try
+                {
+                    // Get the original file name
+                    var fileName = Path.GetFileName(image.FileName);
+
+                    // Define the directory where the image will be saved (usually in wwwroot/img/product)
+                    var directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, "img", "product");
+
+                    // Ensure the directory exists, create it if it doesn't
+                    Directory.CreateDirectory(directoryPath);
+
+                    // Combine the directory path with the original file name to get the full path
+                    var imagePath = Path.Combine(directoryPath, fileName);
+
+                    // Copy the uploaded image to the specified directory
+                    using (Stream stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await image.CopyToAsync(stream);
+                    }
+
+                    // Store the file name in your product object or database.
+                    product.ProductImageName = fileName;
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions that may occur during file upload
+                    ModelState.AddModelError("ImageUploadError", "An error occurred while uploading the image: " + ex.Message);
+                }
             }
+
+            // Retrieve categories for dropdown
+            ViewBag.Categories = _context.Categories;
+
+            if (ModelState.IsValid && product.ProductCategoryCategoryID != Guid.Empty)
+            {
+                try
+                {
+                    // Create a new product
+                    product.ProductID = Guid.NewGuid();
+                    product.DateOfCreation = DateTime.Now;
+                    _context.Add(product);
+                    await _context.SaveChangesAsync();
+
+                    // Redirect to the "Products" action of the "Console" controller upon successful creation
+                    return RedirectToAction("Products", "Console");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions that may occur during product creation
+                    ModelState.AddModelError("ProductCreateError", "An error occurred while creating the product: " + ex.Message);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("ProductCategoryCategoryID", "You must select a product category!");
+            }
+
+            // Return to the view with any validation errors and the product model
             return View(product);
         }
+
+        //public async Task<IActionResult> Create([FromForm] IFormFile image, Product product)
+        //{
+        //    if (image != null && image.Length > 0)
+        //    {
+        //        // Save the image to a directory or perform required processing.
+        //        // For example:
+        //        var uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
+        //        var filePath = Path.Combine("~/wwwroot/img/product/", uniqueFileName);
+
+        //        using (Stream stream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            await image.CopyToAsync(stream);
+        //        }
+
+        //        // Store the file path or uniqueFileName in your product object or database.
+        //        product.ProductImageName = uniqueFileName;
+        //    }
+        //    ViewBag.Categories = _context.Categories;
+        //    if (ModelState.IsValid && product.ProductCategoryCategoryID != Guid.Empty)
+        //    {
+        //        product.ProductID = Guid.NewGuid();
+        //        product.DateOfCreation = DateTime.Now;
+        //        _context.Add(product);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction("Products", "Console");
+        //    }
+        //    ModelState.AddModelError("ProductCategoryCategoryID", "You must select a product category!");
+        //    return View(product);
+        //}
 
         // GET: Admin/Products/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
