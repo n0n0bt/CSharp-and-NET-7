@@ -25,9 +25,8 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Short Descriptio</th>
-                            <th>Image Name</th>
-                            <th>Weight</th>
+                            <th>Description</th>
+                            <th>Image</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
@@ -37,9 +36,8 @@
                         {
                             <tr>
                                 <td>@product.ProductName</td>
-                                <td>@product.ProductShortDescription</td>
-                                <td>@product.ProductImageName</td>
-                                <td>@product.Weight</td>
+                                <td>@product.ProductDescription</td>
+                                <td><img src="~/img/product/@product.ProductImageName" height="50px" /></td>
                                 <td>@product.ProductPrice</td>
                                 <td>
                                     <div class="btn-group" role="group">
