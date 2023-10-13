@@ -118,6 +118,8 @@ namespace Ogani.Areas.Admin.Controllers
                     product.DateOfUpdate = DateTime.Now;
                     _context.Update(product);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("Products", "Console");
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -134,6 +136,7 @@ namespace Ogani.Areas.Admin.Controllers
             }
            ViewBag.Categories = _context.Categories;
             return View(product);
+
         }
         // GET: Admin/Products/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

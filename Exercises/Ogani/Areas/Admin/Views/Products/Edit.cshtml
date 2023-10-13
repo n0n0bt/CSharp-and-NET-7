@@ -54,6 +54,7 @@
             </div>
 
             <div class="form-group">
+
                 <label asp-for="ProductCategoryCategoryID" class="control-label">ProductCategory</label>
                 <select asp-for="ProductCategoryCategoryID" class="form-control">
                     @*<option value="@Guid.Empty">Select Category...</option>*@
@@ -65,14 +66,12 @@
                 <span asp-validation-for="ProductCategoryCategoryID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" /> |
+                <a asp-controller="Console" asp-action="Products">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-    <a asp-controller="Console" asp-action="Products">Back to List</a>
-</div>
+
 
